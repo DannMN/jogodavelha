@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS Jogo da Velha em HTML JavaScript e CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Jogo da Velha</h1>
+    <nav>
+        <div class="players">
+            <p class="p1"></p>
+            <p class="p2"></p>
+        </div>
+        <form>
+            <div class="inputs"> 
+                <label for="p1">Jogador X:</label>
+                <input type="text" id="p1" placeholder="Nome do Jogador X">
+                <input type="color" id="corJ1">
+                <label for="p2">Jogador O:</label>
+                <input type="text" id="p2" placeholder="Nome do Jogador O">
+                <input type="color" id="corJ2">
+            </div>
+            <div class="btns">
+                <button id="newTab">Limpar</button>
+                <button id="btnStart">Começar</button>
+                <button id="btnNew">Novo Jogo</button>
+            </div>
+        </form>
+        
+    </nav>
+    <div class="container">
+        <div class="q">
+            <div id="q0"></div>
+            <div id="q1"></div>
+            <div id="q2"></div>
+            <div id="q3"></div>
+            <div id="q4"></div>
+            <div id="q5"></div>
+            <div id="q6"></div>
+            <div id="q7"></div>
+            <div id="q8"></div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
