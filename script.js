@@ -163,16 +163,19 @@ function verificarJogo(){
         alert(`O jogador ${j2} ganhou!`)
     }else {
         let velha = 0
-        for(let c=0;c < divs.length; c++){
-            if(divs[c].innerHTML != ''){
-                              
+        let c = 0
+        while(c< divs.length){
+            if(divs[c].innerHTML != ''){                              
                 velha++;
             }
         }
+        // for(let c=0;c < divs.length; c++){
+        //     if(divs[c].innerHTML != ''){                              
+        //         velha++;
+        //     }
+        // }
         if(velha > 6){
             alert('Deu Velha!!')
-        }
-        
+        }        
     }
-
 }
