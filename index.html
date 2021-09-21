@@ -4,32 +4,34 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>JS Jogo da Velha em HTML JavaScript e CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/images/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Jogo da Velha</h1>
-    <nav>
-        <div class="players">
-            <p class="p1"></p>
-            <p class="p2"></p>
-        </div>
-        <form>
-            <div class="inputs"> 
-                <label for="p1">Jogador X:</label>
-                <input type="text" id="p1" placeholder="Nome do Jogador X">
-                <input type="color" id="corJ1" value="#57ca2a">
-                <label for="p2">Jogador O:</label>
-                <input type="text" id="p2" placeholder="Nome do Jogador O">
-                <input type="color" id="corJ2" value="#57ca2a">
+    <header>
+        <h1>Jogo da Velha</h1>
+        <nav>
+            <div class="players">
+                <p class="p1"></p>
+                <p class="p2"></p>
             </div>
-            <div class="btns">
-                <button id="newTab" title="Este botão tem a função de limpar o tabuleiro, sem tirar o nome dos Jogadores!">Limpar</button>
-                <button id="btnStart" title="Este botão tem a função de colocar o nome dos jogadores na parte superios da tela!">Começar</button>
-                <button id="btnNew" title="Este botão tem a função de limpar tudo para um novo jogo com novos participantes!">Novo Jogo</button>
-            </div>
-        </form>
-        
-    </nav>
+            <form>
+                <div class="inputs"> 
+                    <label for="p1">Jogador X:</label>
+                    <input type="text" id="p1" placeholder="Nome do Jogador X">
+                    <input type="color" id="corJ1" value="#57ca2a">
+                    <label for="p2">Jogador O:</label>
+                    <input type="text" id="p2" placeholder="Nome do Jogador O">
+                    <input type="color" id="corJ2" value="#57ca2a">
+                </div>
+                <div class="btns">
+                    <button id="newTab" class="clear" title="Este botão tem a função de limpar o tabuleiro, sem tirar o nome dos Jogadores!">Limpar</button>
+                    <button id="btnStart" class="add-player" title="Este botão tem a função de colocar o nome dos jogadores na parte superios da tela!">Começar</button>
+                    <button id="btnNew" class="new-game" title="Este botão tem a função de limpar tudo para um novo jogo com novos participantes!">Novo Jogo</button>
+                </div>
+            </form>        
+        </nav>
+    </header>
     <div class="container">
         <div class="q">
             <div id="q0"></div>
@@ -43,6 +45,6 @@
             <div id="q8"></div>
         </div>
     </div>
-<script src="script.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

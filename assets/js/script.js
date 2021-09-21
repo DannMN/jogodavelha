@@ -1,5 +1,5 @@
 //Pegando todas as div's
-let divs = document.querySelectorAll('div.q div')     
+const divs = document.querySelectorAll('div.q div')     
 let count = 0
 let jogo = []
 let corJ1 = document.querySelector('#corJ1')
@@ -7,12 +7,10 @@ let corJ2 = document.querySelector('#corJ2')
 let j1 = ''
 let j2 = ''
 //iniciando o contador que sera usado para verificar o jogador
-
-for (const item of divs) {
+divs.forEach(item => {
     item.addEventListener('click', jogou)
-}
-let btnStart = document.getElementById('btnStart')
-
+})
+const btnStart = document.getElementById('btnStart')
 btnStart.addEventListener('click', (e)=>{
     e.preventDefault()
     j1 = document.querySelector('input#p1').value
@@ -42,6 +40,7 @@ btnTab.addEventListener('click', (e)=>{
 })
 
 function jogou(el){
+    console.log(el)
         let idDiv = el.target.id
         let divValue = el.target.innerHTML
         let p1 = 'X'
@@ -169,11 +168,12 @@ function verificarJogo(){
                 velha++;
             }
         }
-        // for(let c=0;c < divs.length; c++){
-        //     if(divs[c].innerHTML != ''){                              
-        //         velha++;
-        //     }
-        // }
+        for(let c=0;c < divs.length; c++){
+            if(divs[c].innerHTML != ''){                              
+                velha++;
+            }
+        }
+        console.log(velha)
         if(velha > 6){
             alert('Deu Velha!!')
         }        
