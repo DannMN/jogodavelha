@@ -1,5 +1,5 @@
 //Pegando todas as div's
-const divs = document.querySelectorAll('div.q div')     
+const board = document.querySelectorAll('div.q div')     
 let count = 0
 let jogo = []
 let corJ1 = document.querySelector('#corJ1')
@@ -7,36 +7,34 @@ let corJ2 = document.querySelector('#corJ2')
 let j1 = ''
 let j2 = ''
 //iniciando o contador que sera usado para verificar o jogador
-divs.forEach(item => {
+board.forEach(item => {
     item.addEventListener('click', jogou)
 })
-const btnStart = document.getElementById('btnStart')
-btnStart.addEventListener('click', (e)=>{
+const formInfo = document.getElementById('game-info')
+formInfo.addEventListener('submit', (e)=>{
     e.preventDefault()
-    j1 = document.querySelector('input#p1').value
-    j2 = document.querySelector('input#p2').value
-    
-    document.querySelector('p.p1').innerHTML = j1
-    document.querySelector('p.p2').innerHTML = j2
-    
-
-})
-let btnNew = document.querySelector('#btnNew')
-
-btnNew.addEventListener('click', (e)=>{
-    divs.forEach(div =>{
-        div.innerHTML = ''
-    })
-})
-let btnTab = document.querySelector('#newTab')
-
-btnTab.addEventListener('click', (e)=>{
-    e.preventDefault()
-    divs.forEach(el =>{
-        el.innerHTML = ''
-        el.style.background = 'white'
-        count = 0
-    })
+    console.log(e.submitter.id)
+    if(e.submitter.id == 'newTab'){
+        board.forEach(position => {
+            position.innerHTML = ''
+            position.style.background = 'white'
+            count = 0
+        })
+        return
+    }
+    if(e.submitter.id == 'btnStart'){
+        console.log(e.submitter.id)
+        j1 = document.querySelector('input#p1').value
+        j2 = document.querySelector('input#p2').value
+        document.querySelector('p.p1').innerHTML = j1
+        document.querySelector('p.p2').innerHTML = j2
+        return
+    }
+    if(e.submitter.id == 'btnNew'){
+        document.querySelector('.p1').value = ''
+        document.querySelector('.p2').value = ''
+        return
+    }
 })
 
 function jogou(el){
@@ -65,111 +63,111 @@ function jogou(el){
 
 function verificarJogo(){
     //Verificando Horizontal 1 linha X
-    if((divs[0].innerText === 'X') && (divs[1].innerText === 'X')&& (divs[2].innerText === 'X')){
-        divs[0].style.backgroundColor = corJ1.value
-        divs[1].style.backgroundColor = corJ1.value
-        divs[2].style.backgroundColor = corJ1.value
+    if((board[0].innerText === 'X') && (board[1].innerText === 'X')&& (board[2].innerText === 'X')){
+        board[0].style.backgroundColor = corJ1.value
+        board[1].style.backgroundColor = corJ1.value
+        board[2].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Horizontal 1 linha O
-    }else if((divs[0].innerText === 'O') && (divs[1].innerText === 'O')&& (divs[2].innerText === 'O')){
-        divs[0].style.backgroundColor = corJ2.value
-        divs[1].style.backgroundColor = corJ2.value
-        divs[2].style.backgroundColor = corJ2.value
+    }else if((board[0].innerText === 'O') && (board[1].innerText === 'O')&& (board[2].innerText === 'O')){
+        board[0].style.backgroundColor = corJ2.value
+        board[1].style.backgroundColor = corJ2.value
+        board[2].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Horizontal 2 linha O
-    }else if((divs[3].innerText === 'O') && (divs[4].innerText === 'O')&& (divs[5].innerText === 'O')){
-        divs[3].style.backgroundColor = corJ2.value
-        divs[4].style.backgroundColor = corJ2.value
-        divs[5].style.backgroundColor = corJ2.value
+    }else if((board[3].innerText === 'O') && (board[4].innerText === 'O')&& (board[5].innerText === 'O')){
+        board[3].style.backgroundColor = corJ2.value
+        board[4].style.backgroundColor = corJ2.value
+        board[5].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Horizontal 2 Linha X
-    }else if((divs[3].innerText === 'X') && (divs[4].innerText === 'X')&& (divs[5].innerText === 'X')){
-        divs[3].style.backgroundColor = corJ1.value
-        divs[4].style.backgroundColor = corJ1.value
-        divs[5].style.backgroundColor = corJ1.value
+    }else if((board[3].innerText === 'X') && (board[4].innerText === 'X')&& (board[5].innerText === 'X')){
+        board[3].style.backgroundColor = corJ1.value
+        board[4].style.backgroundColor = corJ1.value
+        board[5].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Horizontal 3 linha O
-    }else if((divs[6].innerText === 'O') && (divs[7].innerText === 'O')&& (divs[8].innerText === 'O')){
-        divs[6].style.backgroundColor = corJ2.value
-        divs[7].style.backgroundColor = corJ2.value
-        divs[8].style.backgroundColor = corJ2.value
+    }else if((board[6].innerText === 'O') && (board[7].innerText === 'O')&& (board[8].innerText === 'O')){
+        board[6].style.backgroundColor = corJ2.value
+        board[7].style.backgroundColor = corJ2.value
+        board[8].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Horizontal 3 Linha X
-    }else if((divs[6].innerText === 'X') && (divs[7].innerText === 'X')&& (divs[8].innerText === 'X')){
-        divs[6].style.backgroundColor = corJ1.value
-        divs[7].style.backgroundColor = corJ1.value
-        divs[8].style.backgroundColor = corJ1.value
+    }else if((board[6].innerText === 'X') && (board[7].innerText === 'X')&& (board[8].innerText === 'X')){
+        board[6].style.backgroundColor = corJ1.value
+        board[7].style.backgroundColor = corJ1.value
+        board[8].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Vertical 1 coluna O
-    }else if((divs[0].innerText === 'O') && (divs[3].innerText === 'O')&& (divs[6].innerText === 'O')){
-        divs[0].style.backgroundColor = corJ2.value
-        divs[3].style.backgroundColor = corJ2.value
-        divs[6].style.backgroundColor = corJ2.value
+    }else if((board[0].innerText === 'O') && (board[3].innerText === 'O')&& (board[6].innerText === 'O')){
+        board[0].style.backgroundColor = corJ2.value
+        board[3].style.backgroundColor = corJ2.value
+        board[6].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Vertical 1 coluna X
-    }else if((divs[0].innerText === 'X') && (divs[3].innerText === 'X')&& (divs[6].innerText === 'X')){
-        divs[0].style.backgroundColor = corJ1.value
-        divs[3].style.backgroundColor = corJ1.value
-        divs[6].style.backgroundColor = corJ1.value
+    }else if((board[0].innerText === 'X') && (board[3].innerText === 'X')&& (board[6].innerText === 'X')){
+        board[0].style.backgroundColor = corJ1.value
+        board[3].style.backgroundColor = corJ1.value
+        board[6].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Vertical 2 coluna O
-    }else if((divs[1].innerText === 'O') && (divs[4].innerText === 'O')&& (divs[7].innerText === 'O')){
-        divs[1].style.backgroundColor = corJ2.value
-        divs[4].style.backgroundColor = corJ2.value
-        divs[7].style.backgroundColor = corJ2.value
+    }else if((board[1].innerText === 'O') && (board[4].innerText === 'O')&& (board[7].innerText === 'O')){
+        board[1].style.backgroundColor = corJ2.value
+        board[4].style.backgroundColor = corJ2.value
+        board[7].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Vertical 2 coluna X
-    }else if((divs[1].innerText === 'X') && (divs[4].innerText === 'X')&& (divs[7].innerText === 'X')){
-        divs[2].style.backgroundColor = corJ1.value
-        divs[4].style.backgroundColor = corJ1.value
-        divs[7].style.backgroundColor = corJ1.value
+    }else if((board[1].innerText === 'X') && (board[4].innerText === 'X')&& (board[7].innerText === 'X')){
+        board[2].style.backgroundColor = corJ1.value
+        board[4].style.backgroundColor = corJ1.value
+        board[7].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Vertical 3 coluna O
-    }else if((divs[2].innerText === 'O') && (divs[5].innerText === 'O')&& (divs[8].innerText === 'O')){
-        divs[2].style.backgroundColor = corJ2.value
-        divs[5].style.backgroundColor = corJ2.value
-        divs[8].style.backgroundColor = corJ2.value
+    }else if((board[2].innerText === 'O') && (board[5].innerText === 'O')&& (board[8].innerText === 'O')){
+        board[2].style.backgroundColor = corJ2.value
+        board[5].style.backgroundColor = corJ2.value
+        board[8].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Vertical 3 coluna X
-    }else if((divs[2].innerText === 'X') && (divs[5].innerText === 'X')&& (divs[8].innerText === 'X')){
-        divs[2].style.backgroundColor = corJ1.value
-        divs[5].style.backgroundColor = corJ1.value
-        divs[8].style.backgroundColor = corJ1.value
+    }else if((board[2].innerText === 'X') && (board[5].innerText === 'X')&& (board[8].innerText === 'X')){
+        board[2].style.backgroundColor = corJ1.value
+        board[5].style.backgroundColor = corJ1.value
+        board[8].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Diagonal 1 para X
-    }else if((divs[0].innerText === 'X') && (divs[4].innerText === 'X')&& (divs[8].innerText === 'X')){
-        divs[0].style.backgroundColor = corJ1.value
-        divs[4].style.backgroundColor = corJ1.value
-        divs[8].style.backgroundColor = corJ1.value
+    }else if((board[0].innerText === 'X') && (board[4].innerText === 'X')&& (board[8].innerText === 'X')){
+        board[0].style.backgroundColor = corJ1.value
+        board[4].style.backgroundColor = corJ1.value
+        board[8].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Diagonal 1 para O
-    }else if((divs[0].innerText === 'O') && (divs[4].innerText === 'O')&& (divs[8].innerText === 'O')){
-        divs[0].style.backgroundColor = corJ2.value
-        divs[4].style.backgroundColor = corJ2.value
-        divs[8].style.backgroundColor = corJ2.value
+    }else if((board[0].innerText === 'O') && (board[4].innerText === 'O')&& (board[8].innerText === 'O')){
+        board[0].style.backgroundColor = corJ2.value
+        board[4].style.backgroundColor = corJ2.value
+        board[8].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
         //Verificando Diagonal 2 para X
-    }else if((divs[2].innerText === 'X') && (divs[4].innerText === 'X')&& (divs[6].innerText === 'X')){
-        divs[2].style.backgroundColor = corJ1.value
-        divs[4].style.backgroundColor = corJ1.value
-        divs[6].style.backgroundColor = corJ1.value
+    }else if((board[2].innerText === 'X') && (board[4].innerText === 'X')&& (board[6].innerText === 'X')){
+        board[2].style.backgroundColor = corJ1.value
+        board[4].style.backgroundColor = corJ1.value
+        board[6].style.backgroundColor = corJ1.value
         alert(`O jogador ${j1} ganhou!`)
         //Verificando Diagonal 2 para O
-    }else if((divs[2].innerText === 'O') && (divs[4].innerText === 'O')&& (divs[6].innerText === 'O')){
-        divs[2].style.backgroundColor = corJ2.value
-        divs[4].style.backgroundColor = corJ2.value
-        divs[6].style.backgroundColor = corJ2.value
+    }else if((board[2].innerText === 'O') && (board[4].innerText === 'O')&& (board[6].innerText === 'O')){
+        board[2].style.backgroundColor = corJ2.value
+        board[4].style.backgroundColor = corJ2.value
+        board[6].style.backgroundColor = corJ2.value
         alert(`O jogador ${j2} ganhou!`)
     }else {
         let velha = 0
         let c = 0
-        while(c< divs.length){
-            if(divs[c].innerHTML != ''){                              
+        while(c< board.length){
+            if(board[c].innerHTML != ''){                              
                 velha++;
             }
         }
-        for(let c=0;c < divs.length; c++){
-            if(divs[c].innerHTML != ''){                              
+        for(let c=0;c < board.length; c++){
+            if(board[c].innerHTML != ''){                              
                 velha++;
             }
         }
