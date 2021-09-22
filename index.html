@@ -16,14 +16,6 @@
                 <p class="p2"></p>
             </div>
             <form id="game-info">
-                <div class="inputs"> 
-                    <label for="p1">Jogador X:</label>
-                    <input type="text" id="p1" placeholder="Nome do Jogador X">
-                    <input type="color" id="corJ1" value="#57ca2a">
-                    <label for="p2">Jogador O:</label>
-                    <input type="text" id="p2" placeholder="Nome do Jogador O">
-                    <input type="color" id="corJ2" value="#57ca2a">
-                </div>
                 <div class="btns">
                     <button id="newTab" class="clear" title="Este botão tem a função de limpar o tabuleiro, sem tirar o nome dos Jogadores!">Limpar</button>
                     <button id="btnStart" class="add-player" title="Este botão tem a função de colocar o nome dos jogadores na parte superios da tela!">Começar</button>
@@ -34,17 +26,28 @@
     </header>
     <div class="container">
         <div class="q">
-            <div id="q0"></div>
-            <div id="q1"></div>
-            <div id="q2"></div>
-            <div id="q3"></div>
-            <div id="q4"></div>
-            <div id="q5"></div>
-            <div id="q6"></div>
-            <div id="q7"></div>
-            <div id="q8"></div>
+            <div id="q0" class="item"></div>
+            <div id="q1" class="item"></div>
+            <div id="q2" class="item"></div>
+            <div id="q3" class="item"></div>
+            <div id="q4" class="item"></div>
+            <div id="q5" class="item"></div>
+            <div id="q6" class="item"></div>
+            <div id="q7" class="item"></div>
+            <div id="q8" class="item"></div>
+        </div>
+        <div class="info">
+            <div class="infoitem">
+                <div class="infotitulo">A vez é: </div>
+                <div class="infocorpo vez">--</div>
+            </div>
+            <div class="infoitem">
+                <div class="infotitulo">Vencedor:</div>
+                <div class="infocorpo resultado">--</div>
+            </div>
         </div>
     </div>
+<script src="assets/js/functions.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
